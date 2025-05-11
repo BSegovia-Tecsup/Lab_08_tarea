@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Bienvenido</title>
-  <link rel="stylesheet" href="/estilos.css">
+    <title>Bienvenida</title>
+    <link rel="stylesheet" href="/estilos.css">
 </head>
 <body>
-  <nav>
-    <span>Bienvenido <%= usuario.nombre %> - <%= usuario.rol %></span>
-    <a href="/logout">Cerrar Sesión</a>
-  </nav>
+    <nav>
+        <span>Bienvenido, <%= usuario %> (<%= rol %>)</span>
+        <a href="/logout">Cerrar sesión</a>
+    </nav>
+
+    <div class="contenedor">
+        <h2>Bienvenido, <%= usuario %>!</h2>
+        <p>Has iniciado sesión como <strong><%= rol %></strong>.</p>
+    </div>
 </body>
 </html>
