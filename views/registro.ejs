@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Registro</title>
+  <link rel="stylesheet" href="/estilos.css">
+</head>
+<body>
+  <h2>Registro</h2>
+  <form method="POST" action="/registro">
+    <input type="text" name="usuario" placeholder="Usuario" required><br>
+    <input type="email" name="email" placeholder="Correo" required><br>
+    <input type="password" name="password" placeholder="Contraseña" required><br>
+    <select name="rol" required>
+      <option value="">Seleccione un rol</option>
+      <option value="Usuario">Usuario</option>
+      <option value="Administrador">Administrador</option>
+    </select><br>
+    <button type="submit">Registrarse</button>
+  </form>
+  <a href="/login">¿Ya tienes cuenta? Inicia sesión</a>
+</body>
+</html>
