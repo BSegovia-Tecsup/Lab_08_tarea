@@ -16,18 +16,15 @@ app.use(session({
   saveUninitialized: true
 }));
 
-// Función para leer los usuarios del archivo JSON
 const leerUsuarios = () => {
   const data = fs.readFileSync('./usuarios.json');
   return JSON.parse(data);
 };
 
-// Función para guardar los usuarios en el archivo JSON
 const guardarUsuarios = (usuarios) => {
   fs.writeFileSync('./usuarios.json', JSON.stringify(usuarios, null, 2));
 };
 
-// Página principal que redirige a login o bienvenida según el estado de la sesión
 app.get('/', (req, res) => {
   if (req.session.usuario) {
     return res.redirect('/bienvenida');
@@ -35,12 +32,10 @@ app.get('/', (req, res) => {
   res.redirect('/login');
 });
 
-// Página de registro
 app.get('/registro', (req, res) => {
   res.render('registro');
 });
 
-// Manejo de registro
 app.post('/registro', async (req, res) => {
   const { usuario, email, password, rol } = req.body;
   const usuarios = leerUsuarios();
@@ -52,12 +47,10 @@ app.post('/registro', async (req, res) => {
   res.redirect('/login');
 });
 
-// Página de login
 app.get('/login', (req, res) => {
   res.render('login');
 });
 
-// Manejo de login
 app.post('/login', async (req, res) => {
   const { usuario, password } = req.body;
   const usuarios = leerUsuarios();
@@ -69,20 +62,17 @@ app.post('/login', async (req, res) => {
   res.redirect('/bienvenida');
 });
 
-// Página de bienvenida después de iniciar sesión
 app.get('/bienvenida', (req, res) => {
   if (!req.session.usuario) return res.redirect('/login');
   res.render('bienvenida', { usuario: req.session.usuario });
 });
 
-// Cerrar sesión
 app.get('/logout', (req, res) => {
   req.session.destroy(() => {
     res.redirect('/login');
   });
 });
 
-// Iniciar servidor
 app.listen(PORT, () => {
   console.log(`Servidor en http://localhost:${PORT}`);
 });

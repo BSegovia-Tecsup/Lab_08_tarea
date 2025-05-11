@@ -2,12 +2,51 @@
 <html>
 <head>
   <title>Bienvenido</title>
-  <link rel="stylesheet" href="/estilos.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #e2f0d9;
+      margin: 0;
+    }
+
+    nav {
+      background-color: #333;
+      color: white;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav span {
+      font-weight: bold;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .contenedor {
+      text-align: center;
+      margin-top: 100px;
+      font-size: 20px;
+    }
+  </style>
 </head>
 <body>
   <nav>
     <span>Bienvenido <%= usuario.nombre %> - <%= usuario.rol %></span>
     <a href="/logout">Cerrar Sesión</a>
   </nav>
+
+  <div class="contenedor">
+    <p>¡Has iniciado sesión correctamente!</p>
+  </div>
 </body>
 </html>

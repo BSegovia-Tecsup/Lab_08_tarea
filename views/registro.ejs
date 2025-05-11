@@ -2,21 +2,101 @@
 <html>
 <head>
   <title>Registro</title>
-  <link rel="stylesheet" href="/estilos.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+    }
+
+    nav {
+      background-color: #333;
+      color: white;
+      padding: 10px;
+      text-align: right;
+    }
+
+    nav a {
+      color: white;
+      margin-left: 15px;
+      text-decoration: none;
+    }
+
+    .contenedor {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+      margin: 40px auto;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    input, select {
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+    button {
+      padding: 10px;
+      background-color: #2196F3;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #1e88e5;
+    }
+
+    a {
+      display: block;
+      text-align: center;
+      margin-top: 10px;
+      color: #007BFF;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
-  <h2>Registro</h2>
-  <form method="POST" action="/registro">
-    <input type="text" name="usuario" placeholder="Usuario" required><br>
-    <input type="email" name="email" placeholder="Correo" required><br>
-    <input type="password" name="password" placeholder="Contraseña" required><br>
-    <select name="rol" required>
-      <option value="">Seleccione un rol</option>
-      <option value="Usuario">Usuario</option>
-      <option value="Administrador">Administrador</option>
-    </select><br>
-    <button type="submit">Registrarse</button>
-  </form>
-  <a href="/login">¿Ya tienes cuenta? Inicia sesión</a>
+  <nav>
+    <a href="/login">Iniciar Sesión</a>
+    <a href="/registro">Registrarse</a>
+  </nav>
+
+  <div class="contenedor">
+    <h2>Registro</h2>
+    <form method="POST" action="/registro">
+      <input type="text" name="usuario" placeholder="Usuario" required>
+      <input type="email" name="email" placeholder="Correo" required>
+      <input type="password" name="password" placeholder="Contraseña" required>
+      <select name="rol" required>
+        <option value="">Seleccione un rol</option>
+        <option value="Usuario">Usuario</option>
+        <option value="Administrador">Administrador</option>
+      </select>
+      <button type="submit">Registrarse</button>
+    </form>
+    <a href="/login">¿Ya tienes cuenta? Inicia sesión</a>
+  </div>
 </body>
 </html>
