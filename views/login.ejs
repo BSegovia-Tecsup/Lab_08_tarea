@@ -1,27 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Iniciar Sesión</title>
-    <link rel="stylesheet" href="/estilos.css">
+  <title>Login</title>
+  <link rel="stylesheet" href="/estilos.css">
 </head>
 <body>
-    <% if (sesion) { %>
-        <nav>
-            <span>Bienvenido, <%= sesion.usuario %> (<%= sesion.rol %>)</span>
-            <a href="/logout">Cerrar sesión</a>
-        </nav>
-    <% } %>
-
-    <div class="contenedor">
-        <h2>Iniciar Sesión</h2>
-        <form action="/login" method="POST">
-            <label>Usuario:</label>
-            <input type="text" name="usuario" required><br>
-            <label>Contraseña:</label>
-            <input type="password" name="contrasena" required><br>
-            <button type="submit">Iniciar Sesión</button>
-        </form>
-        <p><a href="/registro">Registrarse</a></p>
-    </div>
+  <h2>Iniciar Sesión</h2>
+  <form method="POST" action="/login">
+    <input type="text" name="usuario" placeholder="Usuario" required><br>
+    <input type="password" name="password" placeholder="Contraseña" required><br>
+    <button type="submit">Iniciar Sesión</button>
+  </form>
+  <a href="/registro">¿No tienes cuenta? Regístrate</a>
 </body>
 </html>
